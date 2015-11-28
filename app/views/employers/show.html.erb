@@ -1,19 +1,61 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-8">
+    <h1>Listing Internships</h1>
 
-<p>
-  <strong>Company name:</strong>
-  <%= @employer.company_name %>
-</p>
+    <table class = "table">
+      <thead>
+        <tr>
+           <th>Title</th>
+          
+         
+          <th>Salary</th>
+          <th>Suburb</th>
+          <th>Phonenumber</th>
+          <th>Email</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
 
-<p>
-  <strong>Address:</strong>
-  <%= @employer.address %>
-</p>
+      <tbody>
+        <% @internships.each do |internship| %>
+          <tr>
+          <td><%= link_to  internship.title,internship %></td>
+           
+            <td><%= internship.salary %></td>
+            <td><%= internship.suburb %></td>
+             <td><%= internship.phonenumber_contact_person %></td>
+            
+            <td><%= internship.email_contact_person %></td>
+            <td><%= link_to 'Edit', edit_internship_path(internship) %></td>
+            <td><%= link_to 'Destroy', internship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </br>
 
-<p>
-  <strong>About:</strong>
-  <%= @employer.about %>
-</p>
+  <%= link_to 'New Internship', new_internship_path(employer: @employer.id) %>
+</div>
 
-<%= link_to 'Edit', edit_employer_path(@employer) %> |
-<%= link_to 'Back', employers_path %>
+  <div class= "col-md-4">
+  <p>
+    <strong>Company name:</strong>
+    <%= @employer.company_name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @employer.address %>
+  </p>
+
+  <p>
+    <strong>About:</strong>
+    <%= @employer.about %>
+  </p>
+
+  <%= link_to 'Edit', edit_employer_path(@employer) %> |
+  <%= link_to 'Back', employers_path %>
+  </div>
+</div>
+

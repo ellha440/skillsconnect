@@ -10,11 +10,15 @@ class InternshipsController < ApplicationController
   # GET /internships/1
   # GET /internships/1.json
   def show
+    @employees = Employee.all
   end
 
   # GET /internships/new
   def new
     @internship = Internship.new
+    if params[:employer]
+      @employer = Employer.find(params[:employer])
+    end
   end
 
   # GET /internships/1/edit

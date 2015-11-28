@@ -1,12 +1,16 @@
 <%= simple_form_for(@internship) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.association :employer %>
-    <%= f.input :phonenumber_contact_person %>
+  <div class="form-inputs insert-table">
+    <% if params[:employer] %>
+      <%= f.input :employer_id, as: :hidden, input_html: { value: @employer.id }%>
+    <% else %>
+      <%= f.association :employer %>
+    <% end %>
     <%= f.input :title %>
     <%= f.input :salary %>
     <%= f.input :suburb %>
+    <%= f.input :phonenumber_contact_person %>
     <%= f.input :email_contact_person %>
   </div>
 

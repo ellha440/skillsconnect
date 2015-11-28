@@ -1,34 +1,62 @@
 <p id="notice"><%= notice %></p>
+  <div class="col-md-8">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Skills</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Suburb</th>
+        <th>Phonenumber</th>
+        <th>Email</th>
+        <th>Origin</th>
+      </tr>
+    </thead>
 
-<p>
-  <strong>Employer:</strong>
-  <%= @internship.employer %>
-</p>
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr>
+        <td>Java
+          <br/>
+          CSS
+          <br/>
+          JavaScript</td>
+          <td><%= link_to  employee.firstname, employee %></td>
+          <td><%= employee.lastname %></td>
+          <td><%= employee.suburb %></td>
+          <td><%= employee.phonenumber %></td>
+          <td><%= employee.email %></td>
+          <td><%= employee.origin %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="col-md-4">
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">    <%= @internship.title %></h4>
+      <p class="card-text">
+      <strong>Employer:</strong>
+      <%= @internship.employer.company_name %>
+      <br/>
+      <strong>Phonenumber:</strong>
+      <%= @internship.phonenumber_contact_person %>
+      <br/>
+      <strong>Salary:</strong>
+      <%= @internship.salary %>
+      <br/>
+      <strong>Suburb:</strong>
+      <%= @internship.suburb %>
+      <br/>
+      <strong>Email:</strong>
+      <%= @internship.email_contact_person %>
+      <br/>
 
-<p>
-  <strong>Phonenumber contact person:</strong>
-  <%= @internship.phonenumber_contact_person %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @internship.title %>
-</p>
-
-<p>
-  <strong>Salary:</strong>
-  <%= @internship.salary %>
-</p>
-
-<p>
-  <strong>Suburb:</strong>
-  <%= @internship.suburb %>
-</p>
-
-<p>
-  <strong>Email contact person:</strong>
-  <%= @internship.email_contact_person %>
-</p>
-
-<%= link_to 'Edit', edit_internship_path(@internship) %> |
-<%= link_to 'Back', internships_path %>
+    <%= link_to 'Edit', edit_internship_path(@internship) %> |
+    <%= link_to 'Back', internships_path %>
+    </p>
+    </div>
+  </div>
+  
+</div>

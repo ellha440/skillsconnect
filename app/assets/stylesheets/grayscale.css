@@ -60,13 +60,16 @@ a:focus {
     font-weight: 400;
 }
 
+#navbar{
+        background-color: gray;
+        color:white;
+}
+
 .navbar-custom {
     margin-bottom: 0;
     border-bottom: 1px solid rgba(255,255,255,.3);
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: blue;
-
 }
 
 .navbar-custom .navbar-brand {
@@ -348,11 +351,7 @@ footer p {
     background: rgba(255,255,255,.2);
 }
 
-::selection {
-    text-shadow: none;
-    background: #fcfcfc;
-    background: rgba(255,255,255,.2);
-}
+
 
 img::selection {
     background: 0 0;
@@ -372,6 +371,6 @@ body {
 
 .insert-table button, input, select, textarea{
     position: absolute;
-    left: 100px;
+    left: 200px;
 
 }
