@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128045338) do
+ActiveRecord::Schema.define(version: 20151128063004) do
 
   create_table "employee_skills", force: :cascade do |t|
     t.integer  "skill_id"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 20151128045338) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "employers", force: :cascade do |t|
+    t.string   "company_name"
+    t.string   "address"
+    t.text     "about"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "firstnames", force: :cascade do |t|
     t.string   "Lastname"
     t.string   "Suburb"
@@ -47,6 +55,28 @@ ActiveRecord::Schema.define(version: 20151128045338) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "internships", force: :cascade do |t|
+    t.integer  "employer_id"
+    t.string   "phonenumber_contact_person"
+    t.string   "title"
+    t.string   "salary"
+    t.string   "suburb"
+    t.string   "email_contact_person"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "internships", ["employer_id"], name: "index_internships_on_employer_id"
+
+  create_table "required_skills", force: :cascade do |t|
+    t.integer  "job_id"
+    t.string   "skill"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "required_skills", ["job_id"], name: "index_required_skills_on_job_id"
 
   create_table "skills", force: :cascade do |t|
     t.string   "skill"

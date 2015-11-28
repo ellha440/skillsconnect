@@ -1,0 +1,16 @@
+<%= simple_form_for(@internship) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :employer %>
+    <%= f.input :phonenumber_contact_person %>
+    <%= f.input :title %>
+    <%= f.input :salary %>
+    <%= f.input :suburb %>
+    <%= f.input :email_contact_person %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

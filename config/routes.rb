@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :required_skills
+  resources :internships
+  resources :employers
   resources :skills
   resources :employees
   resources :firstnames
